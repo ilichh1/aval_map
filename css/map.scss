@@ -1,0 +1,116 @@
+@import 'sass/colors';
+@import 'sass/utils';
+
+body, html {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 300;
+  line-height: 1.5em;
+}
+
+.aval-main-holder {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 16px 4px;
+  box-sizing: border-box;
+
+  background-color: yellow;
+}
+
+.heading-card {
+  color: #fff;
+  border-radius: 3px;
+  padding: 20px 8px;
+  margin-top: -48px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(233, 30, 99, 0.4);
+  &.success {
+    background: $material-green-gradient;
+  }
+  h1,h2,h3,h4,h5,h6 {
+    font-weight: lighter;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+  }
+}
+
+#dealers-tracker {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding: 15px 20px;
+  padding-top: 48px;
+  background-color: #fff;
+
+  & > .heading-card.success {
+    position: absolute;
+    padding: 16px 22px;
+    color: #000;
+    left: 5%;
+    top: 0;
+  }
+
+  #aval-map-wrapper {
+    position: relative;
+    width: 73%;
+    height: 80vh;
+    border: 2px solid $default-grey;
+
+    #aval-g-map {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  #dealers-cards {
+    width: 23%;
+    max-width: 500px;
+    padding: 8px;
+    border: 2px solid $default-grey;
+
+    .dealer {
+      display: flex;
+      align-items: center;
+      border: 2px solid $default-grey;
+      margin: 10px 0;
+      cursor: default;
+
+      &.selected {
+        background-color: $dealer-selected;
+      }
+
+      .dealer-img {
+        @include squareImage(64px);
+      }
+
+      .dealer-info {
+        margin-left: 8px;
+        padding: 4px 0;
+        width: 90%;
+        display: flex;
+        flex-wrap: wrap;
+
+        .dealer-name {
+          width: 100%;
+        }
+
+        .dealer-charge,
+        .dealer-delivered,
+        .dealer-eta,
+        .dealer-speed {
+          width: 50%;
+        }
+      }
+    }
+  }
+
+}
